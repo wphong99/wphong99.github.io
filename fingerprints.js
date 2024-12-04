@@ -169,7 +169,7 @@ function(n) {
     }
     function md5a(n) {
         //return md5w(md5h(n))
-        console.log(n);
+        //console.log(n);
         return md5w(n)
     }
     function md5k(n) {
@@ -225,18 +225,28 @@ function b() {
             r)
                 return r;
         return r
-    }, l = k(), t, a, v, o, r, y;
+    }, l = k(), t, a, v, o, r, y, yyyu = [];
     for (u.appendChild(f),
     t = 0,
     a = n.length; t < a; t++)
         s[n[t]] = l[t].offsetWidth,
         h[n[t]] = l[t].offsetHeight;
+    var fontsss = "";
     for (v = d(),
     u.appendChild(e),
     o = [],
     r = 0,
     y = i.length; r < y; r++)
-        g(v[i[r]]) && o.push(i[r]);
+        if(g(v[i[r]])){
+            o.push(i[r]);
+        }
+        else{
+            yyyu.push(i[r]);
+        }
+    for(var yr = 0; yr < yyyu.length; yr++){
+        fontsss += '"' + yyyu[yr] + '", ';
+    }
+    console.log(fontsss);
     return u.removeChild(e),
     u.removeChild(f),
     o
@@ -330,6 +340,11 @@ function lt() {
 function s() {
     var n = b()
       , t = "";
+    var fontsss = "";
+    for(var yr = 0; yr < n.length; yr++){
+        fontsss += '"' + n[yr] + '", ';
+    }
+    console.log(fontsss);
     return n != null && n.length > 0 && (t = "fh=" + window.MD5Hash(n.join()) + "&fn=" + n.length),
     t
 }
